@@ -1,93 +1,62 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Blog da disciplina de Computação Visual - João Barbosa">
-    <title>Computação Visual | Blog</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="windows-1252">
+    <title>Computacao Visual - Blog</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
-    <div class="background-elements">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-    </div>
+<body bgcolor="#C0C0C0" text="#000000" link="#0000EE" vlink="#551A8B" alink="#FF0000">
 
-    <header class="glass-header">
-        <div class="header-content">
-            <h1>Comp<span>Visual</span></h1>
-            <nav>
-                <a href="#" class="active">Diário de Bordo</a>
-                <a href="https://github.com/jvvidalb" target="_blank">Sobre Mim</a>
-            </nav>
-        </div>
-    </header>
+    <table width="800" align="center" border="2" cellpadding="10" cellspacing="0" bgcolor="#FFFFFF">
+        <tr>
+            <td colspan="2" align="center" bgcolor="#000080">
+                <font color="#FFFFFF" face="Arial, Helvetica, sans-serif" size="6">
+                    <b><marquee behavior="alternate" width="80%">Bem-vindo ao Blog de Computação Visual!</marquee></b>
+                </font>
+            </td>
+        </tr>
+        <tr>
+            <td width="200" valign="top" bgcolor="#E0E0E0">
+                <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                    <b>Menu Principal</b><br>
+                    <hr>
+                    <ul>
+                        <li><a href="#">Diário de Bordo</a></li>
+                        <li><a href="https://github.com/jvvidalb" target="_blank">Sobre Mim</a></li>
+                        <li><a href="mailto:jvvidalb@users.noreply.github.com">Contato</a></li>
+                    </ul>
+                    <br>
+                    <center>
+                        <img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" alt="Under Construction" width="80" height="80">
+                        <br><i>Site em construção</i>
+                    </center>
+                </font>
+            </td>
+            <td width="600" valign="top">
+                <font face="Times New Roman, Times, serif" size="3">
+                    <h2>O que eu imaginava aprender nessa matéria?</h2>
+                    <i>Postado em: 25 de Agosto de 2026</i>
+                    <hr width="100%" size="2" color="#000000">
+                    
+                    <p>
+                        Quando vi o nome da matéria pela primeira vez, inicialmente, imaginei que o foco principal seria em <b>Computer Vision</b> (Visão Computacional), além de uma introdução a animação 2D e 3D usando softwares robustos como o <i>Blender</i>.
+                    </p>
+                    <p>
+                        Também criei a expectativa de que entraríamos a fundo nas APIs de baixo nível para acesso direto ao hardware gráfico, aprendendo a manipular renderizações através de tecnologias como <b>Vulkan</b> e <b>DirectX</b>.
+                    </p>
+                    <p>
+                        Porém, após a explicação introdutória do professor, a verdadeira natureza da disciplina ficou clara. Entendi que a matéria não focará em apenas um desses extremos, mas sim em uma pequena intersecção dos três pilares da área: <u>Computação Gráfica (CG)</u>, <u>Visão Computacional</u> e <u>Processamento de Imagem</u>. Veremos bibliotecas de manipulação e criação de imagens e também linguagem de shading (GLSL).
+                    </p>
+                    
+                    <br><br>
+                    <center>
+                        <hr width="50%" size="1">
+                        <font size="1">Criado no Notepad. Melhor visualizado em 800x600.</font>
+                    </center>
+                </font>
+            </td>
+        </tr>
+    </table>
 
-    <main class="container">
-        <article class="post-card glass-panel">
-            <div class="post-header">
-                <span class="post-date">25 de Agosto, 2026</span>
-                <span class="post-tag">Expectativas vs Realidade</span>
-            </div>
-            
-            <h2 class="post-title">O que eu imaginava aprender nessa matéria?</h2>
-            
-            <div class="post-content">
-                <p>
-                    Quando vi o nome da matéria pela primeira vez, minha mente imediatamente foi para os extremos práticos e visuais da computação. Inicialmente, imaginei que o foco principal seria em <strong>Computer Vision</strong> (Visão Computacional), além de muita prática com animação 2D e 3D usando softwares robustos como o <em>Blender</em>.
-                </p>
-                <p>
-                    Também criei a expectativa de que entraríamos a fundo nas APIs de baixo nível para acesso direto ao hardware gráfico, aprendendo a manipular renderizações através de tecnologias como <strong>Vulkan</strong> e <strong>DirectX</strong>.
-                </p>
-                <div class="divider"></div>
-                <p>
-                    Porém, após a explicação introdutória do professor, a verdadeira natureza da disciplina ficou clara. Entendi que a matéria não focará em apenas um desses extremos, mas sim em uma <strong>pequena intersecção</strong> dos três pilares fundamentais da área:
-                </p>
-                <ul class="pillars-list">
-                    <li>
-                        <div class="pillar-icon">🎨</div>
-                        <div class="pillar-text">
-                            <strong>Computação Gráfica (CG)</strong>
-                            <span>Síntese e manipulação de imagens a partir de modelos.</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pillar-icon">👁️</div>
-                        <div class="pillar-text">
-                            <strong>Visão Computacional (CV)</strong>
-                            <span>Extração de informações e entendimento de imagens.</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pillar-icon">🖼️</div>
-                        <div class="pillar-text">
-                            <strong>Processamento de Imagem</strong>
-                            <span>Transformação de imagens para melhorar a visualização ou análise.</span>
-                        </div>
-                    </li>
-                </ul>
-                <p class="conclusion">
-                    Estou animado para explorar onde essas três áreas se encontram e como elas formam a base para tecnologias incríveis que usamos todos os dias!
-                </p>
-            </div>
-        </article>
-    </main>
-
-    <footer>
-        <p>Desenvolvido para a disciplina de Computação Visual &bull; Ciência da Computação</p>
-    </footer>
-
-    <script>
-        // Simple micro-animation observer
-        document.addEventListener('DOMContentLoaded', () => {
-            const card = document.querySelector('.post-card');
-            setTimeout(() => {
-                card.classList.add('visible');
-            }, 100);
-        });
-    </script>
 </body>
 </html>
