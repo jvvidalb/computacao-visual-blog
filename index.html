@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog da disciplina de Computação Visual - João Barbosa">
+    <title>Computação Visual | Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <header class="glass-header">
+        <div class="header-content">
+            <h1>Comp<span>Visual</span></h1>
+            <nav>
+                <a href="#" class="active">Diário de Bordo</a>
+                <a href="https://github.com/jvvidalb" target="_blank">Sobre Mim</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="post-card glass-panel">
+            <div class="post-header">
+                <span class="post-date">25 de Agosto, 2026</span>
+                <span class="post-tag">Expectativas vs Realidade</span>
+            </div>
+            
+            <h2 class="post-title">O que eu imaginava aprender nessa matéria?</h2>
+            
+            <div class="post-content">
+                <p>
+                    Quando vi o nome da matéria pela primeira vez, minha mente imediatamente foi para os extremos práticos e visuais da computação. Inicialmente, imaginei que o foco principal seria em <strong>Computer Vision</strong> (Visão Computacional), além de muita prática com animação 2D e 3D usando softwares robustos como o <em>Blender</em>.
+                </p>
+                <p>
+                    Também criei a expectativa de que entraríamos a fundo nas APIs de baixo nível para acesso direto ao hardware gráfico, aprendendo a manipular renderizações através de tecnologias como <strong>Vulkan</strong> e <strong>DirectX</strong>.
+                </p>
+                <div class="divider"></div>
+                <p>
+                    Porém, após a explicação introdutória do professor, a verdadeira natureza da disciplina ficou clara. Entendi que a matéria não focará em apenas um desses extremos, mas sim em uma <strong>pequena intersecção</strong> dos três pilares fundamentais da área:
+                </p>
+                <ul class="pillars-list">
+                    <li>
+                        <div class="pillar-icon">🎨</div>
+                        <div class="pillar-text">
+                            <strong>Computação Gráfica (CG)</strong>
+                            <span>Síntese e manipulação de imagens a partir de modelos.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pillar-icon">👁️</div>
+                        <div class="pillar-text">
+                            <strong>Visão Computacional (CV)</strong>
+                            <span>Extração de informações e entendimento de imagens.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pillar-icon">🖼️</div>
+                        <div class="pillar-text">
+                            <strong>Processamento de Imagem</strong>
+                            <span>Transformação de imagens para melhorar a visualização ou análise.</span>
+                        </div>
+                    </li>
+                </ul>
+                <p class="conclusion">
+                    Estou animado para explorar onde essas três áreas se encontram e como elas formam a base para tecnologias incríveis que usamos todos os dias!
+                </p>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>Desenvolvido para a disciplina de Computação Visual &bull; Ciência da Computação</p>
+    </footer>
+
+    <script>
+        // Simple micro-animation observer
+        document.addEventListener('DOMContentLoaded', () => {
+            const card = document.querySelector('.post-card');
+            setTimeout(() => {
+                card.classList.add('visible');
+            }, 100);
+        });
+    </script>
+</body>
+</html>
