@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="windows-1252">
+    <title>A Pipeline Gráfica - Computacao Visual</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body bgcolor="#C0C0C0" text="#000000" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+    <div align="center">
+    <table style="width: 100%; max-width: 800px; margin: 0 auto; background-color: #FFFFFF;" border="2" cellpadding="10" cellspacing="0">
+        <tr>
+            <td colspan="2" align="center" bgcolor="#000080" style="background-color: #000080;">
+                <font color="#FFFFFF" face="Arial, Helvetica, sans-serif" size="6">
+                    <b><marquee behavior="alternate" width="80%">Bem-vindo ao Blog de Computação Visual!</marquee></b>
+                </font>
+            </td>
+        </tr>
+        <tr>
+            <td width="25%" valign="top" bgcolor="#E0E0E0" style="background-color: #E0E0E0; color: #000000;">
+                <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                    <b>Menu Principal</b><br>
+                    <hr>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="post1.html">Expectativas da Matéria</a></li>
+                        <li><a href="post2.html">Introdução à CG</a></li>
+                        <li><a href="post3.html">A Pipeline Gráfica</a></li>
+                        <li><a href="https://github.com/jvvidalb" target="_blank">Sobre Mim</a></li>
+                    </ul>
+                    <br>
+                    <center>
+                        <img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" alt="Under Construction" width="80" height="80">
+                        <br><i>Site em construção</i>
+                    </center>
+                </font>
+            </td>
+            <td width="75%" valign="top" bgcolor="#FFFFFF" style="background-color: #FFFFFF; color: #000000;">
+                <font face="Times New Roman, Times, serif" size="3" color="#000000">
+                    <h2>A Pipeline Gráfica</h2>
+                    <i>Postado em: 1 de Setembro de 2026</i>
+                    <hr width="100%" size="2" color="#000000">
+                    
+                    <p>Na minha curiosidade, consumi mais um video introdutório no youtube falando sobre computação visual. Desta vez, o tema do video é a pipeline gráfica, que move a computação gráfica.</p>
+
+                    <p>A pipeline gráfica é um processo que recebe recursos como entrada, sendo esses recursos triângulos e texturas, e retorna um alvo renderizado como saída.</p>
+
+                    <p>A questão é, o que acontece Nessa pipeline?</p>
+
+                    <p>Especificamente, os passos são (isto é traduzido livremente do inglês, então os reais conceitos descritos na literatura em português podem ter nomenclaturas diferentes):</p>
+
+                    <ul>
+                        <li>Assembler de entrada</li>
+                        <li>Shader de vertices</li>
+                        <li>Shader de Casca</li>
+                        <li>Tesselador</li>
+                        <li>Shader de domínio</li>
+                        <li>Shader de Geometria</li>
+                        <li>Rasterizador</li>
+                        <li>Shader de pixels</li>
+                        <li>"Juntador" (merger) de saída</li>
+                    </ul>
+
+                    <p>Nota-se que diversos dessas etapas tem o nome "shader". Shader é um programa que roda na placa gráfica e que é programável, e podemos escrever programas que afetam o comportamento desses shaders.</p>
+
+                    <p>Assembler de entrada - recebe um buffer de vertices que define os atributos de todos triângulos que formam um modelo 3D. Recebe informações sobre os atributos desses vertices e retorna um vetor com atributos classificados e tipados.</p>
+
+                    <p>Shader de vertices - Usa o vetor de dados que assembler de entrada retornou e aplica uma matriz a ele para alterá-lo.</p>
+
+                    <p>O Shader de Casca, Tesselador e Shader de domínio formam um estágio da pipeline gráfica chamado Tesselação.</p>
+
+                    <p>Esse estágio pega um primitivo, como um octógono, e retorna uma versão mais detalhada desse primitivo, como um círculo. É um tópico avançado então não foi detalhado lol. Básicamente pega um modelo low poly e tranforma num modelo high-poly.</p>
+
+                    <p>Shader de Geometria - pega um primitivo, como um triângulo, e retorna uma versão alterada desse primitivo. Então ele pode pegar um triângulo e retorna ele mesmo, ou pegar esse triângulo e retornar uma pirâmide. Ele pode também pegar linhas, ou pontos e detelhá-los para uma dimensão superior. Isso é útil para modelagem de partículas, por exemplo, que podem ser definidas como pontos simples, e detalhadas para partículas mais complexas nessa etapa.</p>
+
+                    <p>Rasterizador - Converte as definições lógicas de formas e as transforma em pixels. Suponha que uma cena possui um círculo em frente a outro, com relação à camera. O a placa gráfica processa o círculo mais a frente primeiro e depois processa o que está atrás. Naturalmente, isso faria com que o círculo de trás aparecesse em frente ao círculo da frente, violando a intenção original da cena. Para solucionar isso, o rasterizador usa um buffer de profundidade.<br>
+                    É nessa etapa também que interpola atributos de vertices pela superficies de um triângulo, dando textura a eles.</p>
+
+                    <p>Shader de pixels - pega os atributos de um pixel e retorna uma cor.</p>
+
+                    <p>Juntador de saída - pega as informações de cor e profundidade de um pixel e retorna a mesma cor modificada de acordo com o vetor de profundidade.</p>
+
+                    <p>Este é como a pipeline gráfica funciona de forma simplificada. Espero aprender com mais detalhes nas aulas.</p>
+                    
+                    <br><br>
+                    <center>
+                        <hr width="50%" size="1">
+                        <font size="1">Criado no Notepad. Melhor visualizado em 800x600.</font>
+                    </center>
+                </font>
+            </td>
+        </tr>
+    </table>
+    </div>
+
+</body>
+</html>
