@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="windows-1252">
+    <title>Visão Computacional e Filtros - Computacao Visual</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body bgcolor="#C0C0C0" text="#000000" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+    <div align="center">
+    <table style="width: 100%; max-width: 800px; margin: 0 auto; background-color: #FFFFFF;" border="2" cellpadding="10" cellspacing="0">
+        <tr>
+            <td colspan="2" align="center" bgcolor="#000080" style="background-color: #000080;">
+                <font color="#FFFFFF" face="Arial, Helvetica, sans-serif" size="6">
+                    <b><marquee behavior="alternate" width="80%">Bem-vindo ao Blog de Computação Visual!</marquee></b>
+                </font>
+            </td>
+        </tr>
+        <tr>
+            <td width="25%" valign="top" bgcolor="#E0E0E0" style="background-color: #E0E0E0; color: #000000;">
+                <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                    <b>Menu Principal</b><br>
+                    <hr>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="post1.html">Expectativas da Matéria</a></li>
+                        <li><a href="post2.html">Introdução à CG</a></li>
+                        <li><a href="post3.html">A Pipeline Gráfica</a></li>
+                        <li><a href="post4.html">História e Reflexões</a></li>
+                        <li><a href="post5.html">Computer Vision e Filtros</a></li>
+                        <li><a href="https://github.com/jvvidalb" target="_blank">Sobre Mim</a></li>
+                    </ul>
+                    <br>
+                    <center>
+                        <img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" alt="Under Construction" width="80" height="80">
+                        <br><i>Site em construção</i>
+                    </center>
+                </font>
+            </td>
+            <td width="75%" valign="top" bgcolor="#FFFFFF" style="background-color: #FFFFFF; color: #000000;">
+                <font face="Times New Roman, Times, serif" size="3" color="#000000">
+                    <h2>Visão Computacional e Aplicação de Kernels</h2>
+                    <i>Postado em: 29 de Setembro de 2026</i>
+                    <hr width="100%" size="2" color="#000000">
+                    
+                    <p>O presente texto aborda os fundamentos da Visão Computacional (Computer Vision), área focada na extração e análise de características espaciais de imagens para o reconhecimento de padrões por sistemas computacionais e inteligências artificiais.</p>
+
+                    <p>Em âmbito acadêmico, analisamos a aplicação de filtros espaciais através de matrizes de convolução, denominadas <i>kernels</i>. Uma imagem digital é representada estruturalmente como uma matriz de pixels. O kernel, por sua vez, consiste em uma matriz de dimensões reduzidas (frequentemente 3x3 ou 5x5) utilizada para iterar e realizar operações locais sobre a matriz original da imagem.</p>
+
+                    <p>O processamento via kernel ocorre fundamentalmente por meio de duas operações lineares: correlação e convolução.</p>
+
+                    <ul>
+                        <li><b>Correlação:</b> Consiste na multiplicação ponto a ponto dos elementos do kernel pelos elementos correspondentes da vizinhança do pixel central na imagem original, seguida da soma dos produtos para determinar o novo valor escalar do pixel analisado.</li>
+                        <li><b>Convolução:</b> Opera matematicamente de forma análoga à correlação, contudo exige que o kernel seja rebatido (rotacionado em 180 graus no eixo espacial) antes da execução das multiplicações escalares.</li>
+                    </ul>
+
+                    <p>A definição algorítmica dos coeficientes contidos no kernel determina a resposta de frequência da filtragem espacial. Filtros passa-baixa distribuem os valores dos pixels adjacentes para atenuar ruídos de alta frequência. Em contrapartida, filtros de detecção de bordas calculam o gradiente espacial da imagem, evidenciando transições abruptas de intensidade que definem os contornos e as propriedades geométricas dos objetos.</p>
+
+                    <p>No contexto de aprendizado de máquina e redes neurais artificiais, especificamente nas Redes Neurais Convolucionais (CNNs), as operações de convolução formam a arquitetura base para o reconhecimento de padrões. Diferentemente do processamento de imagens clássico, onde os pesos do kernel são estipulados de forma determinística por um operador, as arquiteturas convolucionais otimizam iterativamente os pesos matrizes dos kernels por meio de algoritmos de retropropagação (<i>backpropagation</i>) durante o treinamento. Tal paradigma permite que o modelo computacional extraia de forma autônoma hierarquias de características subjacentes aos dados visuais, consolidando o estado da arte na resolução de problemas de Visão Computacional.</p>
+                    
+                    <br><br>
+                    <center>
+                        <hr width="50%" size="1">
+                        <font size="1">Criado no Notepad. Melhor visualizado em 800x600.</font>
+                    </center>
+                </font>
+            </td>
+        </tr>
+    </table>
+    </div>
+
+</body>
+</html>
