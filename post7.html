@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="windows-1252">
+    <title>Ray Tracing vs. Rasterização - Computacao Visual</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body bgcolor="#C0C0C0" text="#000000" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+    <div align="center">
+    <table style="width: 100%; max-width: 800px; margin: 0 auto; background-color: #FFFFFF;" border="2" cellpadding="10" cellspacing="0">
+        <tr>
+            <td colspan="2" align="center" bgcolor="#000080" style="background-color: #000080;">
+                <font color="#FFFFFF" face="Arial, Helvetica, sans-serif" size="6">
+                    <b><marquee behavior="alternate" width="80%">Bem-vindo ao Blog de Computação Visual!</marquee></b>
+                </font>
+            </td>
+        </tr>
+        <tr>
+            <td width="25%" valign="top" bgcolor="#E0E0E0" style="background-color: #E0E0E0; color: #000000;">
+                <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                    <b>Menu Principal</b><br>
+                    <hr>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="post1.html">Expectativas da Matéria</a></li>
+                        <li><a href="post2.html">Introdução à CG</a></li>
+                        <li><a href="post3.html">A Pipeline Gráfica</a></li>
+                        <li><a href="post4.html">História e Reflexões</a></li>
+                        <li><a href="post5.html">Computer Vision e Filtros</a></li>
+                        <li><a href="post7.html">Ray Tracing vs. Rasterização</a></li>
+                        <li><a href="https://github.com/jvvidalb" target="_blank">Sobre Mim</a></li>
+                    </ul>
+                    <br>
+                    <center>
+                        <img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" alt="Under Construction" width="80" height="80">
+                        <br><i>Site em construção</i>
+                    </center>
+                </font>
+            </td>
+            <td width="75%" valign="top" bgcolor="#FFFFFF" style="background-color: #FFFFFF; color: #000000;">
+                <font face="Times New Roman, Times, serif" size="3" color="#000000">
+                    <h2>Ray Tracing vs. Rasterização: Evolução e Otimizações na Renderização 3D</h2>
+                    <i>Postado em: 29 de Outubro de 2026</i>
+                    <hr width="100%" size="2" color="#000000">
+                    
+                    <p>A síntese de imagens tridimensionais na computação gráfica fundamenta-se historicamente em dois paradigmas distintos de transporte de luz e projeção geométrica: a rasterização e o traçado de raios (<i>Ray Tracing</i>).</p>
+
+                    <h3>Evolução Histórica do Ray Tracing</h3>
+                    <p>O algoritmo de <i>Ray Tracing</i> foi formalizado no final da década de 1960 por Arthur Appel (através do conceito de <i>ray casting</i>) e expandido em 1979 por Turner Whitted, que introduziu o traçado recursivo de raios para capturar reflexões especulares, refrações e sombras projetadas. Na abordagem de Whitted, raios primários são disparados a partir do plano da câmera através de cada pixel da grade de visualização em direção à cena. Quando uma interseção com uma primitiva geométrica é detectada, raios secundários (de sombra, reflexão e refração) são gerados recursivamente para calcular a radiância resultante com base nas propriedades materiais da superfície e nas fontes luminosas.</p>
+
+                    <p>Devido ao elevado custo computacional dos testes de interseção raio-primitiva (cuja complexidade ingênua escala linearmente com o número de objetos e pixels), o <i>Ray Tracing</i> permaneceu restrito por décadas à renderização <i>offline</i>, sendo utilizado na indústria cinematográfica e em simulações arquitetônicas. Apenas a partir de 2018, com a introdução de unidades de processamento gráfico (GPUs) equipadas com aceleradores de hardware dedicados à travessia de estruturas espaciais (como <i>Bounding Volume Hierarchies</i> - BVH) e interseção de triângulos, além de algoritmos de reconstrução de imagem baseados em aprendizado de máquina (<i>denoising</i>), o <i>Ray Tracing</i> em tempo real e a renderização híbrida tornaram-se viáveis comercialmente em jogos eletrônicos.</p>
+
+                    <h3>Comparação: Rasterização vs. Ray Tracing</h3>
+                    <p>A diferença estrutural entre os dois métodos reside na ordem do processamento algorítmico:</p>
+
+                    <ul>
+                        <li><b>Rasterização (Abordagem centrada no objeto):</b> Os vértices dos polígonos da cena tridimensional são transformados por matrizes de projeção para o espaço de tela 2D e convertidos em fragmentos (pixels candidatos). A visibilidade é resolvida localmente por meio de um buffer de profundidade (<i>Z-buffer</i>). Por processar cada primitiva de forma isolada, a rasterização não possui conhecimento global da geometria da cena durante o sombreamento de um pixel, exigindo aproximações matemáticas empíricas para simular fenômenos ópticos globais.</li>
+                        <li><b>Ray Tracing (Abordagem centrada na imagem):</b> Itera sobre os pixels da tela e projeta vetores matemáticos no espaço 3D para consultar diretamente a estrutura geométrica global da cena. Essa formulação modela o transporte físico de fótons (no sentido inverso), permitindo o cálculo exato de oclusão, penumbras, cáusticas, reflexões inter-objetos e iluminação global indireta (<i>Path Tracing</i>).</li>
+                    </ul>
+
+                    <h3>Técnicas de Otimização em Motores 3D Clássicos</h3>
+                    <p>Devido à incapacidade de executar traçado de raios e à severa restrição de processamento nas primeiras gerações de aceleradores 3D e CPUs dos anos 1990 e 2000, o desenvolvimento de jogos baseados em rasterização dependeu de técnicas algorítmicas estritas para descartar geometria irrelevante e pré-computar fenômenos luminosos:</p>
+
+                    <ol>
+                        <li><b>Particionamento Espacial (BSP Trees) e PVS:</b> Popularizado por motores como o do <i>Quake</i> (1996), o uso de Árvores de Particionamento Espacial Binário (<i>Binary Space Partitioning</i>) dividia o cenário estático em subespaços convexos. Associado ao <i>Potentially Visible Set</i> (PVS), o motor determinava previamente quais setores do mapa eram visíveis a partir de qualquer ponto, descartando (<i>culling</i>) polígonos ocluídos antes mesmo de enviá-los ao pipeline de renderização.</li>
+                        <li><b>Frustum Culling e Back-face Culling:</b> O <i>Frustum Culling</i> elimina objetos inteiros cujos volumes delimitadores (<i>bounding boxes</i>) encontram-se fora do tronco de pirâmide de visão da câmera. O <i>Back-face Culling</i>, por sua vez, descarta imediatamente polígonos cuja normal da superfície aponta na direção oposta ao vetor da câmera (calculado via produto escalar), reduzindo pela metade o número de triângulos a serem rasterizados em malhas fechadas.</li>
+                        <li><b>Lightmaps (Mapas de Iluminação Pré-computados):</b> Como o cálculo de sombras e iluminação indireta em tempo real era inviável, a iluminação da geometria estática era calculada previamente durante a compilação do cenário (frequentemente utilizando algoritmos de radiosidade ou <i>ray tracing offline</i>) e armazenada em texturas de baixa resolução chamadas <i>lightmaps</i>. Durante a execução do jogo, o motor realizava apenas uma operação de <i>multi-texturing</i>, multiplicando a textura base da superfície pelo <i>lightmap</i> correspondente.</li>
+                        <li><b>Billboarding e Nível de Detalhe (LOD):</b> O <i>Level of Detail</i> (LOD) substitui malhas tridimensionais complexas por versões com contagem reduzida de polígonos conforme a distância em relação à câmera aumenta. Em casos extremos ou para sistemas de partículas e vegetação, utilizava-se o <i>Billboarding</i>, técnica que substitui geometria 3D por planos bidimensionais texturizados (<i>sprites</i>) que rotacionam continuamente para permanecerem ortogonais ao eixo de visão do observador.</li>
+                        <li><b>Shadow Maps e Stencil Shadows:</b> Para objetos dinâmicos que não podiam utilizar <i>lightmaps</i>, empregavam-se projeções planares simples, volumes de sombra no <i>Stencil Buffer</i> (notabilizados em <i>Doom 3</i>) ou <i>Shadow Mapping</i> (renderização da cena a partir da perspectiva da fonte de luz para um buffer de profundidade secundário, comparando-o posteriormente com a visão da câmera para determinar áreas em sombra).</li>
+                    </ol>
+                    
+                    <br><br>
+                    <center>
+                        <hr width="50%" size="1">
+                        <font size="1">Criado no Notepad. Melhor visualizado em 800x600.</font>
+                    </center>
+                </font>
+            </td>
+        </tr>
+    </table>
+    </div>
+
+</body>
+</html>
