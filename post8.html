@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="windows-1252">
+    <title>Como a Realidade Aumentada funciona - Computacao Visual</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body bgcolor="#C0C0C0" text="#000000" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+    <div align="center">
+    <table style="width: 100%; max-width: 800px; margin: 0 auto; background-color: #FFFFFF;" border="2" cellpadding="10" cellspacing="0">
+        <tr>
+            <td colspan="2" align="center" bgcolor="#000080" style="background-color: #000080;">
+                <font color="#FFFFFF" face="Arial, Helvetica, sans-serif" size="6">
+                    <b><marquee behavior="alternate" width="80%">Bem-vindo ao Blog de Computação Visual!</marquee></b>
+                </font>
+            </td>
+        </tr>
+        <tr>
+            <td width="25%" valign="top" bgcolor="#E0E0E0" style="background-color: #E0E0E0; color: #000000;">
+                <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                    <b>Menu Principal</b><br>
+                    <hr>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="post1.html">Expectativas da Matéria</a></li>
+                        <li><a href="post2.html">Introdução à CG</a></li>
+                        <li><a href="post3.html">A Pipeline Gráfica</a></li>
+                        <li><a href="post4.html">História e Reflexões</a></li>
+                        <li><a href="post5.html">Computer Vision e Filtros</a></li>
+                        <li><a href="post7.html">Ray Tracing vs. Rasterização</a></li>
+                        <li><a href="post8.html">Realidade Aumentada</a></li>
+                        <li><a href="https://github.com/jvvidalb" target="_blank">Sobre Mim</a></li>
+                    </ul>
+                    <br>
+                    <center>
+                        <img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" alt="Under Construction" width="80" height="80">
+                        <br><i>Site em construção</i>
+                    </center>
+                </font>
+            </td>
+            <td width="75%" valign="top" bgcolor="#FFFFFF" style="background-color: #FFFFFF; color: #000000;">
+                <font face="Times New Roman, Times, serif" size="3" color="#000000">
+                    <h2>Como a Realidade Aumentada funciona</h2>
+                    <i>Postado em: 10 de Novembro de 2026</i>
+                    <hr width="100%" size="2" color="#000000">
+                    
+                    <p>Continuando os estudos na área de computação visual, o tema de hoje é um que já faz parte do nosso dia a dia há um bom tempo, mas que envolve bastante matemática e processamento de imagem por trás dos panos: a Realidade Aumentada (RA). A ideia básica da RA é sobrepor elementos gráficos gerados por computador, como modelos 3D, diretamente sobre a nossa visão do mundo real. O grande desafio técnico aqui não é apenas desenhar o objeto na tela, mas fazer com que o dispositivo entenda exatamente onde ele está no espaço e para onde a câmera está apontando, atualizando a perspectiva em tempo real para que o objeto virtual pareça realmente preso ao chão ou sobre uma mesa.</p>
+
+                    <p>Para resolver esse problema de localização espacial, a visão computacional costuma seguir dois caminhos principais: o rastreamento baseado em marcadores (<i>marker-based</i>) e o rastreamento sem marcadores (<i>markerless</i>).</p>
+
+                    <p>A abordagem <i>marker-based</i> é a mais clássica e direta. Nela, o sistema precisa de uma referência visual conhecida no mundo físico para se orientar, geralmente um padrão quadrado de alto contraste parecido com um QR Code, ou até uma imagem específica cadastrada previamente no programa. Quando a câmera captura o vídeo, o software aplica filtros para detectar as bordas e os cantos desse marcador. Como o programa já sabe o formato exato e o tamanho original daquela figura, ele consegue calcular a deformação da perspectiva na imagem e descobrir o ângulo e a distância da câmera em relação ao papel. Com essa matriz de posição e rotação calculada, o motor gráfico simplesmente desenha o modelo 3D em cima do marcador.</p>
+
+                    <p>Já a abordagem <i>markerless</i> é muito mais complexa e flexível, porque não exige que a gente imprima um marcador ou aponte a câmera para uma figura específica. Em vez disso, o sistema mapeia o ambiente ao redor em tempo real usando técnicas conhecidas como SLAM (Localização e Mapeamento Simultâneos). O algoritmo analisa os quadros da câmera procurando pontos de interesse naturais do cenário, como quinas de móveis, texturas do piso e bordas de objetos, e acompanha como esses pontos se movem de um quadro para o outro. Para o rastreamento não se perder quando movemos o aparelho rápido demais, o sistema cruza os dados da câmera com os sensores internos de movimento do dispositivo, como o giroscópio e o acelerômetro. A partir dessa variação de perspectiva, o software consegue estimar a profundidade do cenário e identificar superfícies planas horizontais e verticais onde os objetos virtuais podem ser posicionados.</p>
+
+                    <p>Hoje em dia vemos essas duas técnicas rodando o tempo todo em aplicativos mobile. Através de ferramentas como o ARKit da Apple e o ARCore do Google, qualquer smartphone consegue usar a câmera junto com os sensores de movimento para medir ambientes, testar como um móvel ficaria na sala antes de comprar, aplicar filtros de rosto que acompanham a geometria da face ou posicionar personagens de jogos na calçada. Nos aparelhos que contam com sensores de profundidade dedicados, como o LiDAR, esse mapeamento do espaço fica ainda mais rápido e permite até que objetos reais passem na frente dos objetos virtuais, respeitando a oclusão da cena.</p>
+
+                    <p>Outro exemplo muito forte dessa implementação está nos óculos de realidade virtual e mista mais recentes, como o Meta Quest 3 e o Apple Vision Pro. Embora sejam fechados como óculos de realidade virtual tradicionais, eles usam diversas câmeras externas e sensores infravermelhos para escanear o quarto inteiro continuamente usando rastreamento <i>markerless</i>, enquanto transmitem o vídeo do mundo real para as telas internas com baixíssima latência. Já em óculos com lentes transparentes, como o HoloLens, a imagem é projetada diretamente na lente sem bloquear a visão real, mas o princípio de visão computacional nos bastidores é o mesmo: ler a geometria do ambiente o tempo todo para garantir que as janelas e objetos tridimensionais continuem fixos no espaço físico mesmo quando o usuário anda pela sala.</p>
+                    
+                    <br><br>
+                    <center>
+                        <hr width="50%" size="1">
+                        <font size="1">Criado no Notepad. Melhor visualizado em 800x600.</font>
+                    </center>
+                </font>
+            </td>
+        </tr>
+    </table>
+    </div>
+
+</body>
+</html>
